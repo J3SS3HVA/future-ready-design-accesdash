@@ -1,17 +1,26 @@
 <script>
-  import {Title, AccessibillityGraph, AutomaticScan, ErrorResult, TypeGraph} from '$lib'
+  import { SiteOverview, CurrentPageTitle } from '$lib';
   export let data = data;
-  export let company = data.sites;
-  export let result = data.scans[0];
-  export let resultsheet = data.scans;
 </script>
 
-<Title {company} {resultsheet}/>
-  
-<AutomaticScan {result} />
+<main id="main-content">
+  <CurrentPageTitle />
+  <SiteOverview {data} />
+</main>
 
-<ErrorResult {result} />
+<style>
 
-<TypeGraph {result}/>
+  main {
+    margin: 0 auto;
+    max-width: var(--page-width);
+    padding: 30px 10px;
+    gap: var(--average-gap);
+    display: flex;
+    flex-direction: column;
 
-<AccessibillityGraph {resultsheet}/>
+    @media (min-width: 700px) and (max-width: 1440px) {
+      padding-left: 70px;
+    }
+  }
+
+</style>
